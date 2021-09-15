@@ -103,7 +103,7 @@ const timeAgo = (date) => {
 </td>
 
 </tr>
-	<p class="lead mb-4"> <td style=" text-align: left;"><strong>ABCD15.</strong> </td> </p>
+	<p class="lead mb-4"> <td style=" text-align: left;"><strong>ABCD16.</strong> </td> </p>
 <script>
 fetch('kvsk_f1.json')
     .then(res => res.json())
@@ -119,11 +119,8 @@ fetch('kvsk_f1.json')
 		    content += '</div>';
 	    }
 	    d.innerHTML += `
-<div class="d-flex gap-2 w-100 justify-content-between">
-<div class="w-100">
 <td class="mb-0 opacity-75"><ul>` + content + `</ul></td>
-</div>
-</div>`;
+`;
 	 }
 }).catch(err => console.error(err));
 </script>	
