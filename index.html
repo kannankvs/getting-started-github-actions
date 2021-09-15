@@ -115,13 +115,15 @@ fetch('kvsk_f1.json')
 	    <tr> 
 	      for (var file in out[key]) {
 		      	<p class="lead mb-4"> <td style=" text-align: left;"><strong>ABCD3.</strong> </td> </p>
-		<td style=" text-align: center; "><span style="color: #0000ff;"><a href="' + out[key][file]['url'] + '">' + file '</a></span></td>		    
+		content += <td style=" text-align: center; "><span style="color: #0000ff;"><a href="' + out[key][file]['url'] + '">' + file '</a></span></td>		    
 	      }
 	    </tr>
+
+	<p class="lead mb-4"> <td style=" text-align: left;"><strong>ABCD4.</strong> </td> </p>	
+<p class="mb-0 opacity-75"><ul>` + content + `</ul></p>
 	 }
 }).catch(err => console.error(err));
-</script>
-	<p class="lead mb-4"> <td style=" text-align: left;"><strong>ABCD4.</strong> </td> </p>	
+</script>	
 </div>
 </div>
 </div>
