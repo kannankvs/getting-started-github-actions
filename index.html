@@ -221,6 +221,32 @@ fetch('kvsk_f1.json')
 	 let d = document.getElementById('builds');
 	 for (var key in out) {
 	    content = ''
+	 <tr> 
+	    for (var file in out[key]) {
+		    <td>
+		    let ta = timeAgo(out[key][file]['date']);
+		    content += '<div class="d-flex gap-2 w-100 justify-content-between">';
+		    content += '<div>';
+		    content += '<li><a href="' + out[key][file]['url'] + '">' + file + '</a></li></div><span class="opacity-25 text-nowrap"><a href="' + out[key][file]['build-url'] + '">' + '</a></span>'
+		    content += '</div>';
+		    </td>
+	    }
+	    d.innerHTML += `
+<span class="list-group-item d-flex gap-3 py-3" aria-current="true">
+<p class="mb-0 opacity-75"><ul>` + content + `</ul></p>
+</span>`;
+	</tr>
+	 }
+}).catch(err => console.error(err));
+</script>
+
+<script>
+fetch('kvsk_f1.json')
+    .then(res => res.json())
+    .then((out) => {
+	 let d = document.getElementById('builds');
+	 for (var key in out) {
+	    content = ''
 	    for (var file in out[key]) {
 		    let ta = timeAgo(out[key][file]['date']);
 		    content += '<div class="d-flex gap-2 w-100 justify-content-between">';
