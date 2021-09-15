@@ -1,132 +1,99 @@
+<html lang="en">
 
-
-<html>
 <head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/luxon@2.0.1/build/global/luxon.min.js" integrity="sha256-BdqBGuaawDzMtW2Wn9ISUuYKUY/A7d5NVcj6Ix3jwv8=" crossorigin="anonymous"></script>
-<title>SONiC installation images</title>
-<style>
-.list-group {
-  width: auto;
-  max-width: 1200px;
-  margin: 4rem auto;
-  margin-top:0;
-  margin-bottom:0;
-}
-</style>
-    <style>
-        table,
-        th,
-        td {
-            border: 2px solid blue;
-            text-align: center;
-			width:1100px
-        }
-        
-        th,
-        td {
-            padding: 10px;
-            background-color: none;
-        }
-    </style>	
+	<meta charset="UTF-8">
+	<title>GFG User Details</title>
 
-<link rel="icon" type="image/png" href="sonic-ico.png">
-<script>
-// From https://github.com/moment/luxon/issues/274
-const units = [
-  'year',
-  'month',
-  'week',
-  'day',
-  'hour',
-  'minute',
-  'second',
-];
-const timeAgo = (date) => {
-  let dateTime = luxon.DateTime.fromISO(date)
-  const diff = dateTime.diffNow().shiftTo(...units);
-  const unit = units.find((unit) => diff.get(unit) !== 0) || 'second';
+	<!-- INCLUDING JQUERY-->
+	<script src=
+"https://code.jquery.com/jquery-3.5.1.js">
+	</script>
 
-  const relativeFormatter = new Intl.RelativeTimeFormat('en', {
-    numeric: 'auto',
-  });
-  return relativeFormatter.format(Math.trunc(diff.as(unit)), unit);
-};
-</script>
+	<!-- CSS FOR STYLING THE PAGE -->
+	<style>
+		table {
+			margin: 0 auto;
+			font-size: large;
+			border: 1px solid black;
+		}
+
+		h1 {
+			text-align: center;
+			color: #006600;
+			font-size: xx-large;
+			font-family: 'Gill Sans',
+				'Gill Sans MT', ' Calibri',
+				'Trebuchet MS', 'sans-serif';
+		}
+
+		td {
+			background-color: #E4F5D4;
+			border: 1px solid black;
+		}
+
+		th,
+		td {
+			font-weight: bold;
+			border: 1px solid black;
+			padding: 10px;
+			text-align: center;
+		}
+
+		td {
+			font-weight: lighter;
+		}
+	</style>
 </head>
+
 <body>
-<div class="px-4 py-5 text-center">
-<img class="d-block mx-auto mb-4" src="https://azure.github.io/SONiC/pdf/newsletters/newsletter_images/sonic-logo_40percentage.png" alt="SONiC logo">
-<div class="col-lg-6 mx-auto">
-<p class="lead mb-4">
-<td style=" text-align: left;"><strong>Index3 of the latest SONiC installation images.</strong> </td>
-</p>
-</div>
-</div>
+	<section>
+		<h1>GeeksForGeeks</h1>
 
-<div class="list-group" id="builds">
-            <table style="width:1200px" border="2" align="center" >
-    <section id="mu-page-breadcrumb">
-        <div class="container">
-            <div class="row">
-				<div style="text-align: center;">
-					<div style="background-color: lightblue;  " >
-						<div class="col-md-12">
-							<div class="mu-page-breadcrumb-area">
-								<h2> SONiC Platform Builds </h2>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-    </section>
+		<!-- TABLE CONSTRUCTION-->
+		<table id='table'>
+			<!-- HEADING FORMATION -->
+			<tr>
+				<th>GFG UserHandle</th>
+				<th>Practice Problems</th>
+				<th>Coding Score</th>
+				<th>GFG Articles</th>
+			</tr>
 
-</tr>
-<tr>
-<td style="width: 20%; text-align: center; padding-left: 0.5em; background-color: lightblue; height: 45px; align: center;">
-<span style="letter-spacing: 0.15em;  font-weight: bold; font-size: calc(11px + 0.6vw); ">Platform</span></td>
-<td style="background-color: lightblue; padding-left: 0.5em; height: 45px;" >
- <span style="letter-spacing: 0.15em;  font-weight: bold; font-size: calc(11px + 0.6vw); ">Master</span>
-</td>
-<td style="background-color: lightblue; padding-left: 0.5em; height: 45px;" >
- <span style="letter-spacing: 0.15em;  font-weight: bold; font-size: calc(11px + 0.6vw); ">202106</span>
-</td>
-<td style="background-color: lightblue; padding-left: 0.5em; height: 45px;" >
- <span style="letter-spacing: 0.15em;  font-weight: bold; font-size: calc(11px + 0.6vw); ">202012</span>
-</td>
-<td style="background-color: lightblue; padding-left: 0.5em; height: 45px;" >
- <span style="letter-spacing: 0.15em;  font-weight: bold; font-size: calc(11px + 0.6vw); ">201911</span>
-</td>
-<td style="background-color: lightblue; padding-left: 0.5em; height: 45px;" colspan="6">
- <span style="letter-spacing: 0.15em;  font-weight: bold; font-size: calc(11px + 0.6vw); ">201811</span>
-</td>
+			<script>
+				$(document).ready(function () {
 
-</tr>
-	<p class="lead mb-4"> <td style=" text-align: left;"><strong>ABCD25.</strong> </td> </p>
-<script>
-fetch('kvsk_f1.json')
-    .then(res => res.json())
-    .then((out) => {
-	 let d = document.getElementById('builds');
-	 for (var key in out) {
-		 <tr>
-	    content = ''
-	    for (var file in out[key]) {
-		    let ta = timeAgo(out[key][file]['date']);
-		    content += '<td><a href="' + out[key][file]['url'] + '">' + file + ' ' + '</a></td>'
-	    }
-	    d.innerHTML += `
-<p>` + content + `</p>
-<td style=" text-align: left;"><strong>ABCD25.</strong> </td> 
-`;
+					// FETCHING DATA FROM JSON FILE
+					$.getJSON("kvsk_f1.json",
+							function (data) {
+						var student = '';
 
-	 }
-}).catch(err => console.error(err));
-</script>	
-</div>
-</div>
-</div>
+						// ITERATING THROUGH OBJECTS
+						$.each(data, function (key, value) {
 
+							//CONSTRUCTION OF ROWS HAVING
+							// DATA FROM JSON OBJECT
+							student += '<tr>';
+							student += '<td>' +
+								value.GFGUserName + '</td>';
+
+							student += '<td>' +
+								value.NoOfProblems + '</td>';
+
+							student += '<td>' +
+								value.TotalScore + '</td>';
+
+							student += '<td>' +
+								value.Articles + '</td>';
+
+							student += '</tr>';
+						});
+						
+						//INSERTING ROWS INTO TABLE
+						$('#table').append(student);
+					});
+				});
+			</script>
+	</section>
 </body>
+
 </html>
