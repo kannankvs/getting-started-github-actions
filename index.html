@@ -103,13 +103,14 @@ const timeAgo = (date) => {
 </td>
 
 </tr>
-	<p class="lead mb-4"> <td style=" text-align: left;"><strong>ABCD23.</strong> </td> </p>
+	<p class="lead mb-4"> <td style=" text-align: left;"><strong>ABCD24.</strong> </td> </p>
 <script>
 fetch('kvsk_f1.json')
     .then(res => res.json())
     .then((out) => {
 	 let d = document.getElementById('builds');
 	 for (var key in out) {
+		 <tr>
 	    content = ''
 	    for (var file in out[key]) {
 		    let ta = timeAgo(out[key][file]['date']);
@@ -117,8 +118,9 @@ fetch('kvsk_f1.json')
 	    }
 	    d.innerHTML += `
 <p>` + content + `</p>
-<td style=" text-align: left;"><strong>ABCD23.</strong> </td> 
+<td style=" text-align: left;"><strong>ABCD24.</strong> </td> 
 `;
+		 </tr>
 	 }
 }).catch(err => console.error(err));
 </script>	
