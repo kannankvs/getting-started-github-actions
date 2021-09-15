@@ -59,7 +59,7 @@ const timeAgo = (date) => {
 <img class="d-block mx-auto mb-4" src="https://azure.github.io/SONiC/pdf/newsletters/newsletter_images/sonic-logo_40percentage.png" alt="SONiC logo">
 <div class="col-lg-6 mx-auto">
 <p class="lead mb-4">
-<td style=" text-align: left;"><strong>Index2 of the latest SONiC installation images.</strong> </td>
+<td style=" text-align: left;"><strong>Index3 of the latest SONiC installation images.</strong> </td>
 </p>
 </div>
 </div>
@@ -103,24 +103,31 @@ const timeAgo = (date) => {
 </td>
 
 </tr>
-	<p class="lead mb-4"> <td style=" text-align: left;"><strong>ABCD1.</strong> </td> </p>
+	<p class="lead mb-4"> <td style=" text-align: left;"><strong>ABCD11.</strong> </td> </p>
 <script>
 fetch('kvsk_f1.json')
     .then(res => res.json())
     .then((out) => {
 	 let d = document.getElementById('builds');
-		<p class="lead mb-4"> <td style=" text-align: left;"><strong>ABCD2.</strong> </td> </p>
 	 for (var key in out) {
 	    content = ''
-	    <tr> 
-	      for (var file in out[key]) {
-		      	<p class="lead mb-4"> <td style=" text-align: left;"><strong>ABCD3.</strong> </td> </p>
-		content += <td style=" text-align: center; "><span style="color: #0000ff;"><a href="' + out[key][file]['url'] + '">' + file '</a></span></td>		    
-	      }
-	    </tr>
-
-	<p class="lead mb-4"> <td style=" text-align: left;"><strong>ABCD4.</strong> </td> </p>	
+	    for (var file in out[key]) {
+		    let ta = timeAgo(out[key][file]['date']);
+		    content += '<div class="d-flex gap-2 w-100 justify-content-between">';
+		    content += '<div>';
+		    content += '<td><a href="' + out[key][file]['url'] + '">' + file + '</a></td></div><span class="opacity-25 text-nowrap"><a href="' + out[key][file]['build-url'] + '">' + ta + '</a></span>'
+		    content += '</div>';
+	    }
+	    d.innerHTML += `
+<span class="list-group-item d-flex gap-3 py-3" aria-current="true">
+<img src="package.png" alt="package" width="64" height="47" class="rounded-circle flex-shrink-0">
+<div class="d-flex gap-2 w-100 justify-content-between">
+<div class="w-100">
+<h6 class="mb-3">Branch ` + key + `</h6>
 <p class="mb-0 opacity-75"><ul>` + content + `</ul></p>
+</div>
+</div>
+</span>`;
 	 }
 }).catch(err => console.error(err));
 </script>	
