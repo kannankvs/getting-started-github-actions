@@ -103,7 +103,7 @@ const timeAgo = (date) => {
 </td>
 
 </tr>
-	<p class="lead mb-4"> <td style=" text-align: left;"><strong>ABCD11.</strong> </td> </p>
+	<p class="lead mb-4"> <td style=" text-align: left;"><strong>ABCD12.</strong> </td> </p>
 <script>
 fetch('kvsk_f1.json')
     .then(res => res.json())
@@ -119,15 +119,12 @@ fetch('kvsk_f1.json')
 		    content += '</div>';
 	    }
 	    d.innerHTML += `
-<span class="list-group-item d-flex gap-3 py-3" aria-current="true">
-<img src="package.png" alt="package" width="64" height="47" class="rounded-circle flex-shrink-0">
 <div class="d-flex gap-2 w-100 justify-content-between">
 <div class="w-100">
 <h6 class="mb-3">Branch ` + key + `</h6>
 <p class="mb-0 opacity-75"><ul>` + content + `</ul></p>
 </div>
 </div>
-</span>`;
 	 }
 }).catch(err => console.error(err));
 </script>	
