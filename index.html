@@ -103,7 +103,7 @@ const timeAgo = (date) => {
 </td>
 
 </tr>
-	<p class="lead mb-4"> <td style=" text-align: left;"><strong>ABCD16.</strong> </td> </p>
+	<p class="lead mb-4"> <td style=" text-align: left;"><strong>ABCD17.</strong> </td> </p>
 <script>
 fetch('kvsk_f1.json')
     .then(res => res.json())
@@ -113,10 +113,7 @@ fetch('kvsk_f1.json')
 	    content = ''
 	    for (var file in out[key]) {
 		    let ta = timeAgo(out[key][file]['date']);
-		    content += '<div class="d-flex gap-2 w-100 justify-content-between">';
-		    content += '<div>';
 		    content += '<td><a href="' + out[key][file]['url'] + '">' + file + '</a></td></div><span class="opacity-25 text-nowrap"><a href="' + out[key][file]['build-url'] + '">' + ta + '</a></span>'
-		    content += '</div>';
 	    }
 	    d.innerHTML += `
 <td class="mb-0 opacity-75"><ul>` + content + `</ul></td>
