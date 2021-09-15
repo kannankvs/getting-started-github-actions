@@ -2,98 +2,116 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>GFG User Details</title>
-
+	<title>SONiC installation images</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 	<!-- INCLUDING JQUERY-->
-	<script src=
-"https://code.jquery.com/jquery-3.5.1.js">
-	</script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 	<!-- CSS FOR STYLING THE PAGE -->
 	<style>
-		table {
-			margin: 0 auto;
-			font-size: large;
-			border: 1px solid black;
+		.list-group {
+		    width: auto;
+		    max-width: 1200px;
+		    margin: 4rem auto;
+		    margin-top:0;
+		    margin-bottom:0;
 		}
-
-		h1 {
-			text-align: center;
-			color: #006600;
-			font-size: xx-large;
-			font-family: 'Gill Sans',
-				'Gill Sans MT', ' Calibri',
-				'Trebuchet MS', 'sans-serif';
-		}
-
-		td {
-			background-color: #E4F5D4;
-			border: 1px solid black;
-		}
-
+		table,
 		th,
-		td {
-			font-weight: bold;
-			border: 1px solid black;
-			padding: 10px;
+		td{
+			width: 1100px;
 			text-align: center;
+			border: 2px solid blue;
 		}
 
-		td {
-			font-weight: lighter;
+		th,td{
+		    padding: 10px;
+		    background-color: none;
 		}
 	</style>
 </head>
 
 <body>
-	<section>
-		<h1>GeeksForGeeks</h1>
+    <div class="px-4 py-5 text-center">
+	<img class="d-block mx-auto mb-4" src="https://azure.github.io/SONiC/pdf/newsletters/newsletter_images/sonic-logo_40percentage.png" alt="SONiC logo">
+	<div class="col-lg-6 mx-auto">
+	    <p class="lead mb-4">
+		<td style=" text-align: left;"><strong>Index of the latest SONiC installation images.</strong> </td>
+	    </p>
+	</div>
+    </div>
+    <div class="list-group" id="builds">
+            <table style="width:1200px" border="2" align="center" id="disp_table" >
+		<tr>
+		    <section id="mu-page-breadcrumb">
+			<div class="container">
+			    <div class="row">
+				<div style="text-align: center;">
+					<div style="background-color: lightblue;  " >
+						<div class="col-md-12">
+							<div class="mu-page-breadcrumb-area">
+								<h2> SONiC Platform Builds </h2>
+							</div>
+						</div>
+					</div>
+				</div>
+			    </div>
+			</div>
+		    </section>
+		</tr>
+		<tr id="branch">
+		    <td style="width: 20%; text-align: center; padding-left: 0.5em; background-color: lightblue; height: 45px; align: center;">
+			<span style="letter-spacing: 0.15em;  font-weight: bold; font-size: calc(11px + 0.6vw); ">Platform</span></td>
+		</tr>
+	    </table>
 
-		<!-- TABLE CONSTRUCTION-->
-		<table id='table'>
-			<!-- HEADING FORMATION -->
-			<tr>
-				<th>GFG UserHandle</th>
-				<th>Practice Problems</th>
-				<th>Coding Score</th>
-				<th>GFG Articles</th>
-			</tr>
+	</div>
+	<div class="px-4 text-center">
+	    <div class="col-lg-6 mx-auto">
+		<p class="lead mt-4">
 
-			<script>
-				$(document).ready(function () {
+		</p>
+		<p class="mt-4">
+		    <a href="https://sonic-build.azurewebsites.net/ui/sonic/Pipelines">click here</a></span></td> for previous builds <br>
+		    Contact: <a href="">GitHub</a>
 
-					// FETCHING DATA FROM JSON FILE
-					$.getJSON("kvsk_f1.json",
-							function (data) {
-						var student = '';
+		</p>
 
-						// ITERATING THROUGH OBJECTS
-						$.each(data, function (key, value) {
+		</p>
+	    </div>
+	</div>
+    </div>
 
-							//CONSTRUCTION OF ROWS HAVING
-							// DATA FROM JSON OBJECT
-							student += '<tr>';
-							student += '<td>' +
-								value.GFGUserName + '</td>';
+    <script>
+	$(document).ready(function () {
+	    $.getJSON("kvsk_f1.json", 
+		function(data) {
+		    console.log(data);
+		    dbs = data;
+		    branches = Object.keys(data);
+		    image_data = [];
+		    for (let i = 0; i < branches.length; i++) {
+			display_data = "<td style=\"width: 20%; text-align: center; padding-left: 0.5em; background-color: lightblue; height: 45px; align: center;\"><span style=\"letter-spacing: 0.15em;  font-weight: bold; font-size: calc(11px + 0.6vw); \">" + branches[i].toUpperCase() +"</span></td>";
+			$("#branch").append(display_data);
+			images = Object.keys(data[branches[i]]);
+			for (let j = 0; j < images.length; j++) {
+			    image = data[branches[i]][images[j]];
+			    image_name = image['url'].split("target/")[1];
+			    image_platform = image_name.split(".")[0];
+			    platform = image_platform.split("sonic-")[1];
+			    if ( !$("#"+platform).length ){
+				platform_column = "<tr id=\""+ platform +"\"><td style=\" text-align: center; \"><strong>"+ platform.toUpperCase()+"</strong></td></tr>";
+				$("#disp_table").append(platform_column);
+			    }
 
-							student += '<td>' +
-								value.NoOfProblems + '</td>';
+			    image_column ="<td style=\"text-align: center;\"><span style=\"color: #0000ff;\"><a href=\""+ image['url'] +"\">"+image_name+"</a></span></td>";
+			    $("#"+platform).append(image_column);
+			}
+		    }
 
-							student += '<td>' +
-								value.TotalScore + '</td>';
+		});
+	});
+    </script>
 
-							student += '<td>' +
-								value.Articles + '</td>';
-
-							student += '</tr>';
-						});
-						
-						//INSERTING ROWS INTO TABLE
-						$('#table').append(student);
-					});
-				});
-			</script>
-	</section>
 </body>
-
 </html>
