@@ -216,15 +216,15 @@
  },
 "sonic-generic.bin": {
   "url": "null",
-  "build-url": "https://dev.azure.com/mssonic/build/_build/results?buildId=37373&view=results",
-  "build": "37373",
-  "date": "2021-09-16T08:00:01.3006177Z"
+  "build-url": "https://dev.azure.com/mssonic/build/_build/results?buildId=37707&view=results",
+  "build": "37707",
+  "date": "2021-09-17T08:00:01.6419183Z"
  },
 "sonic-generic-dbg.bin": {
   "url": "null",
-  "build-url": "https://dev.azure.com/mssonic/build/_build/results?buildId=37373&view=results",
-  "build": "37373",
-  "date": "2021-09-16T08:00:01.3006177Z"
+  "build-url": "https://dev.azure.com/mssonic/build/_build/results?buildId=37707&view=results",
+  "build": "37707",
+  "date": "2021-09-17T08:00:01.6419183Z"
  },
 "sonic-marvell-armhf.bin": {
   "url": "null",
