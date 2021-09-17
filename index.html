@@ -105,16 +105,20 @@
 				    platform = ""
 				}
 			    }
+			    image_avail = true;
 			    image_url = image['url'];
 			    if(image_url === 'null' || image_url === ""){
-				image_url = "#";
+				image_avail = false;
 			    }
 			    if ( !$("#"+platform).length ){
 				platform_column = "<tr id=\""+ platform +"\"><td style=\" text-align: center; \"><strong>"+ platform.toUpperCase()+"</strong></td></tr>";
 				$("#disp_table").append(platform_column);
 			    }
+			    if (image_avail)
+				image_column ="<td style=\"text-align: center;\"><span style=\"color: #0000ff;\"><a href=\""+ image_url +"\">"+image_name+"</a></span></td>";
+			    else
+				image_column ="<td style=\"text-align: center;\"><span style=\"color: #0000ff;\">N/A</span></td>";
 
-			    image_column ="<td style=\"text-align: center;\"><span style=\"color: #0000ff;\"><a href=\""+ image_url +"\">"+image_name+"</a></span></td>";
 			    $("#"+platform).append(image_column);
 			}
 		    }
