@@ -144,7 +144,7 @@ do
 	echo " }" >> kvsk_f3.json
 	echo -n "}" >> kvsk_f3.json
 done
-echo -e "}" >> kvsk_f3.json
+echo $"\n}" >> kvsk_f3.json
 
 git config --global user.email "kannankvs@gmail.com"
 git config --global user.name "Kannan KVS"
