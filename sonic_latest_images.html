@@ -21,7 +21,7 @@
 		td{
 			width: 1200px;
 			text-align: center;
-			border: 2px solid blue;
+			border: 2px grey;
 		}
 
 		th,td{
@@ -47,7 +47,7 @@
 			<div class="container">
 			    <div class="row">
 				<div style="text-align: center;">
-					<div style="background-color: lightblue;  " >
+					<div style="background-color: lightred;  " >
 						<div class="col-md-12">
 							<div class="mu-page-breadcrumb-area">
 								<h2> SONiC Platform Builds </h2>
@@ -60,7 +60,7 @@
 		    </section>
 		</tr>
 		<tr id="branch">
-		    <td style="width: 20%; text-align: center; padding-left: 0.5em; background-color: lightblue; height: 45px; align: center;">
+		    <td style="width: 20%; text-align: center; padding-left: 0.5em; background-color: lightgreen; height: 45px; align: center;">
 			<span style="letter-spacing: 0.15em;  font-weight: bold; font-size: calc(11px + 0.6vw); ">Platform</span></td>
 		</tr>
 	    </table>
@@ -88,7 +88,7 @@
 		    branches = Object.keys(data);
 		    image_data = [];
 		    for (let i = 0; i < branches.length; i++) {
-			display_data = "<td style=\" text-align: center; padding-left: 0.5em; background-color: lightblue; height: 45px; align: center;\"><span style=\"letter-spacing: 0.15em;  font-weight: bold; font-size: calc(11px + 0.6vw); \">" + branches[i].toUpperCase() +"</span></td>";
+			display_data = "<td style=\" text-align: center; padding-left: 0.5em; background-color: lightorange; height: 45px; align: center;\"><span style=\"letter-spacing: 0.15em;  font-weight: bold; font-size: calc(11px + 0.6vw); \">" + branches[i].toUpperCase() +"</span></td>";
 			$("#branch").append(display_data);
 			images = Object.keys(data[branches[i]]);
 			for (let j = 0; j < images.length; j++) {
