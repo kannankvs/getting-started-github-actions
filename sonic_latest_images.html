@@ -67,7 +67,7 @@
 
 		</p>
 		<p class="mt-4">
-		    <a href="https://sonic-build.azurewebsites.net/ui/sonic/Pipelines">click here</a></span></td> for previous builds <br>
+		    <a href="https://sonic-build.azurewebsites.net/ui/sonic/Pipelines">click here</a></span></td> for previous builds3 <br>
 		</p>
 
 		</p>
@@ -82,7 +82,7 @@
 		    dbs = data;
 		    branches = Object.keys(data);
 		    image_data = [];
-		    for (let i = 0; i < branches.length; i++) {
+		    for (let i = branches.length - 1 ; i >= 0; i--) {
 			display_data = "<td style=\" text-align: center; padding-left: 0.5em; background-color: lightgrey; height: 45px; align: center;\"><span style=\"letter-spacing: 0.15em;  font-weight: bold; font-size: calc(11px + 0.6vw); \">" + branches[i].toUpperCase() +"</span></td>";
 			$("#branch").append(display_data);
 			images = Object.keys(data[branches[i]]);
