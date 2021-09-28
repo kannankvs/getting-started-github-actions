@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with GitHub Actions
 
-name: Run generate shell script
+name: Run generate2 shell script
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the main branch
