@@ -145,8 +145,8 @@ do
 done
 echo "\n}" >> sonic_image_links.json
 
-git config --global user.email "kannankvs@gmail.com"
-git config --global user.name "Kannan KVS"
+git config --global user.email "xumia@microsoft.com"
+git config --global user.name "Xuhui Miao"
 git add sonic_image_links.json
 git commit -m "latest links for sonic images"
 git push
